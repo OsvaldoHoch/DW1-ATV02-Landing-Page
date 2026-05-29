@@ -357,6 +357,7 @@ body{
     margin: 20px 0px;
 }
 .contato-container {
+    position: relative;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -373,6 +374,23 @@ body{
 .contato-p{
     max-width: 500px;
 }
+/* .contato-container::before {
+    content: url("imagens/Pizzaicon.png");
+    position: absolute;
+    left: -600px;
+    top: -200px;
+    filter: invert(10%) sepia(43%) saturate(7490%) hue-rotate(354deg) brightness(77%) contrast(101%) opacity(10%);
+    z-index: -10;
+}
+.contato-container::after {
+    content: url("imagens/Pizzaicon.png");
+    position: absolute;
+    right: -600px;
+    top: 200px;
+    filter: invert(10%) sepia(43%) saturate(7490%) hue-rotate(354deg) brightness(77%) contrast(101%) opacity(10%);
+    z-index: -10;
+} */
+
 
  /* FOOTER ---------------------------------------------------------- */
 .footer {
@@ -599,4 +617,21 @@ body{
         flex: 1;
         justify-content: space-between;
     }
+
+    .contato-container::before {
+    content: url("imagens/Pizzaicon.png");
+    position: absolute;
+    left: -600px;
+    top: -200px;
+    filter: invert(10%) sepia(43%) saturate(7490%) hue-rotate(354deg) brightness(77%) contrast(101%) opacity(10%);
+    z-index: -10;
+}
+.contato-container::after {
+    content: url("imagens/Pizzaicon.png");
+    position: absolute;
+    right: -600px;
+    top: 200px;
+    filter: invert(10%) sepia(43%) saturate(7490%) hue-rotate(354deg) brightness(77%) contrast(101%) opacity(10%);
+    z-index: -10;
+}
 }
