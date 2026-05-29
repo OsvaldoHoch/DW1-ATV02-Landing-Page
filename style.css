@@ -1,0 +1,602 @@
+/* DEFINIÇÕES PADRÃO  */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* outline: 1px solid red; */
+}
+html{
+    scroll-behavior: smooth;
+}
+body{
+    font-family:'Times New Roman', Times, serif;
+    color: #700606;
+
+}
+#inicio {
+    scroll-margin-top: -40px;
+}
+#cardapio{
+    scroll-margin-top: 30px;
+}
+#sobre, #contato {
+    scroll-margin-top: 150px;
+}
+
+/* HEADER ----------------------------------------------------------------------------------- */
+.header {
+    font-family: 'Times New Roman', Times, serif;
+    position: fixed;
+    width: 100%;
+    height: 100px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    padding: 10px 10px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    z-index: 1000;
+    transform: translateY(0px);
+    transition: transform 0.3s ease;
+}
+.header.hide{
+    transform: translateY(-100%);
+}
+.logo {
+    position: relative;
+    left: 50px;
+    /* top: 10px; */
+    /* filter: drop-shadow(20px 20px 20px rgba(255,230,170, 0.5)); */
+}
+.header-nav-wrapper {
+}
+.menu {
+    padding-left: 15%;
+    display: flex;
+    flex-direction: row;
+    gap: 20%;
+}
+.menu a {
+    position: relative;
+    color: #700606;
+    text-decoration: none;
+    font-size: clamp(20px, 1.4vw, 30px);
+    font-weight: 500;
+    padding-bottom: 5px;
+}
+.menu a::after {
+    content: "";
+    position: absolute;
+
+    left: 0;
+    bottom: 0;
+
+    width: 100%;
+    height: 2px;
+
+    background-color: #700606;
+
+    transform: scaleX(0);
+    transform-origin: left;
+
+    transition: transform 0.3s ease;
+}
+.menu a:hover::after {
+    transform: translateY(-2px);
+    transform: scale(1.05);
+    background-color: #700606;
+}
+.btn-header {
+    min-width: 180px;
+    padding: 10px 0px;
+    margin-right: 50px;
+    font-size: 15px;
+    font-weight: 400;
+    color: #fff;
+    background-color: #700606;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+.btn-header img {
+    padding-bottom: 2px;
+    margin-left: 10px;
+    vertical-align: middle;
+}
+.btn-header::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 10px;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 5px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+.btn-header:hover {
+    background-color: #097410;
+}
+.btn-header:active {
+    transform: scale(0.95);
+}
+
+/* HERO SECTION  -------------------------------------------------------------------------- */
+.hero {
+    background: url("imagens/herov2-enhanced.png");
+    max-width: 100%;
+    height: clamp(43rem, 100vh, 65rem);
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    font-family: 'Times New Roman', Times, serif;
+    color: #700606;        
+}
+.hero-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    align-items: start;
+    padding: 10%;
+}
+.hero-img {
+    flex: 1;
+    justify-content: center;
+    margin: 10px 20%;
+    width: clamp(200px, 17vw, 300px);
+}
+.hero-content h1 {
+    font-weight: 500;
+    font-size: clamp(40px, 3vw, 70px);
+    font-style: italic;
+    text-align: left;
+}
+.hero-content p {
+    color: #586B24;
+    max-width: clamp(500px, 45vw, 800px);
+    font-size: clamp(16px, 1.4vw, 22px);
+    text-align: left;
+    padding: 20px 0px;
+}
+.btn-container {
+    position: relative;
+    width: clamp(400px, 30vw, 800px);
+    height: 50px;
+}
+.offer {
+    position: absolute;
+    background-color: #e00000;
+    color: aliceblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: rotate(-10deg);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    font-size: 10px;
+    font-weight: 600;
+    border: 2px solid #fff;
+    top: -20px;
+    right: -20px;
+}
+
+/* SEÇÃO CARDÁPIOS --------------------------------------------------------------------------- */
+.cardapio {
+    font-family: 'Times New Roman', Times, serif;
+    background: linear-gradient(225deg, #700606, #360101);
+    color: aliceblue;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 100%;
+    height: fit-content;
+    padding: 70px 0px;
+}
+.cardapio-title {
+    justify-content: center;
+    text-align: center;
+    font-size: clamp(30px, 3vw, 40px);
+    font-weight: 500;
+    margin-bottom: 30px;
+    margin-left: 20px;
+    margin-right: 20px;
+
+}
+.cards {
+    margin: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: start;
+    gap: 5%;
+    max-width: 80%;
+    flex-wrap: wrap;
+}
+.card {
+    flex: 1 1 300px;
+    min-width: 250px;
+    max-width: 350px;
+    min-height: 100%;
+    margin-bottom: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.5);
+}
+.card img {
+    width: 100%;
+    border-radius: 6px;
+}
+.card-content {
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+}
+.card-content h3 {
+    font-size: clamp(20px, 1vw, 30px);
+    font-weight: 500;
+    margin-bottom: 5px;
+    color: #700606;
+}
+.card-content p {
+    font-size: clamp(14px, 1vw, 20px);
+    color: #250404;
+}
+.preco {
+    display: flex;   
+    flex-direction: row;
+    align-items: center;
+    justify-self: center;
+    gap: 10px;     
+    margin-top: -15px;
+    font-size: clamp(30px, 1.4vw, 40px);
+    font-weight: 600;
+    color: #425217;
+}
+.card-content .btn-car {
+    margin-top: 5px;
+    width: 100%;
+    padding: 10px 0px;
+    font-size: 15px;
+    font-weight: 400;
+    color: #fff;
+    background-color: #700606;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+.btn-car:hover {
+    background-color: #097410;
+}
+.btn-car:active {
+    transform: scale(0.95);
+}
+
+/* SEÇÃO SOBRE ------------------------------------------------------------------------ */
+.sobre {
+    font-family: 'Times New Roman', Times, serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 100px;
+}
+.sobre-container {
+    position: relative;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 50px;
+}
+.sobre-container h2 {
+    font-size: clamp(30px, 3vw, 40px);
+    font-weight: 600;
+    margin: 20px 0px;
+}
+.sobre-content {
+    max-width: 80%;
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: center;
+    /* gap: 20px; */
+    background: linear-gradient(225deg, #700606, #360101);
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    color: aliceblue;
+    height: fit-content;
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.5);
+}
+.sobre-content img {
+    margin: 20px;
+    width: 60%;
+    max-width: 800px;
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+.sobre-content-p {
+    font-weight: 400;
+    text-align: justify;
+    flex: 1;
+    flex-direction: column;
+    margin-left: 20px;
+    margin-right: 40px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: clamp(12px, 1vw, 18px);
+    max-width: 700px;
+}
+
+/* SEÇÃO CONTATO ---------------------------------------------------------------------------- */
+.contato {
+    font-family: 'Times New Roman', Times, serif;
+    color: #700606;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    font-size: clamp(16px, 1vw, 22px);
+}
+.contato h2 {
+    font-size: clamp(30px, 3vw, 40px);
+    font-weight: 600;
+    margin: 20px 0px;
+}
+.contato-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background: rgb(245, 243, 241);
+    max-width: 60%;
+    height: fit-content;
+    margin: auto;
+    border-top-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.1);
+    margin-bottom: 50px;
+    padding: 20px;
+}
+.contato-p{
+    max-width: 500px;
+}
+
+ /* FOOTER ---------------------------------------------------------- */
+.footer {
+    font-weight: 400;
+    margin-top: 200px;
+    background: linear-gradient(225deg, #700606, #360101);
+    color: aliceblue;
+    font-family: 'Times New Roman', Times, serif;
+    width: 100%;
+    height: fit-content;
+}
+.footer-container {
+    padding-top: 50px;
+    padding-right: 50px;
+    padding-left: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    max-width: 300px;
+    color: rgba(255, 255, 255, 0.7);
+}
+.footer-content h4 {
+    font-size: 20px;
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.footer-bottom {
+    color: rgba(255, 255, 255, 0.7);
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    padding: 5px;
+}
+
+ 
+
+/* RESPONSIVIDADE -------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+    .header {
+        position: fixed;
+        width: 100%;
+        height: 80px; /* Altura fixa para o topo */
+        display: flex;
+        flex-direction: row; /* Mantém logo e botão na mesma linha */
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 20px;
+        border-radius: 0 0 20px 20px;
+        transform: none !important; /* Desativa o efeito antigo de sumir */
+    }
+
+    /* Estilização do Botão Hambúrguer */
+    .menu-toggle {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        width: 30px;
+        height: 25px;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        z-index: 1001;
+    }
+
+    .menu-toggle span {
+        width: 100%;
+        height: 3px;
+        background-color: #700606;
+        border-radius: 2px;
+        transition: all 0.3s ease;
+    }
+
+    /* Animação do botão transformando em 'X' quando ativo */
+    .menu-toggle.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+    .menu-toggle.active span:nth-child(2) {
+        opacity: 0;
+    }
+    .menu-toggle.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -7px);
+    }
+
+    /* Container do Menu Mobile (Escondido por padrão) */
+    .header-nav-wrapper {
+        position: absolute;
+        top: 80px; /* Começa logo abaixo do header */
+        left: 0;
+        width: 100%;
+        background-color: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(16px);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+        padding: 40px 20px;
+        border-radius: 0 0 20px 20px;
+        box-shadow: 0px 10px 20px rgba(0,0,0,0.1);
+        
+        /* Efeito de recolhido */
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-20px);
+        transition: all 0.3s ease;
+    }
+
+    /* Quando o menu está aberto */
+    .header-nav-wrapper.active {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+
+    .logo {
+        left: 0;
+    }
+
+    .menu {
+        padding-left: 0;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .btn-header {
+        width: 100%;
+        max-width: 280px;
+        margin-right: 0;
+    }
+
+
+    /* Ajustes das seções para não sumirem atrás do menu */
+    .hero {
+        background: linear-gradient(225deg, rgba(255, 212, 172, 0.5), rgba(255, 245, 229, 01)), 
+        url(imagens/herov2-enhanced.png);
+        max-width: 100%;
+        background-size: cover;
+        background-position: left center;
+        background-position: 100% center;
+    }
+    .hero-content p {
+        max-width: 100%;
+        width: 100%;
+    }
+    .btn-container {
+        width: 100%;
+        min-width: unset;
+        max-width: 100%;
+    }
+    .hero-content {
+        padding: 5%;
+        width: 100%;
+    }
+    .hero-img {
+        transform: translateX(-19px);
+    }
+
+    
+    .card {
+        min-width: unset;
+        width: 100%;
+    }
+    .cards {
+        max-width: 100%;
+        padding: 0 5%;
+    }
+
+    .sobre-container {
+        max-width: 80%;
+    }
+    .sobre-content {
+        flex-direction: column;  /* empilha imagem e texto verticalmente */
+        max-width: 100%;
+    }
+
+    .sobre-content img {
+        width: 100%;             /* remove o clamp problemático */
+        margin: 0;
+        border-radius: 0;
+        border-top-right-radius: 20px;  /* mantém o border-radius só no topo */
+    }
+
+    .sobre-container {
+        margin: 30px 15px;       /* reduz a margem lateral */
+        width: calc(100% - 30px);
+    }
+
+    .sobre-content-p {
+        margin: 20px;
+        max-width: 100%;         /* remove o limite de 500px */
+    }
+
+
+    .contato-container {
+        max-width: 80%;
+    }
+
+    .footer-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 20px;
+}
+}
+
+/* Fora do mobile, escondemos o botão hambúrguer */
+@media (min-width: 769px) {
+    .menu-toggle {
+        display: none;
+    }
+    .header-nav-wrapper {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        width: auto;
+        flex: 1;
+        justify-content: space-between;
+    }
+}
