@@ -11,7 +11,9 @@ html{
 body{
     font-family:'Times New Roman', Times, serif;
     color: #700606;
-
+}
+main {
+    overflow: hidden;
 }
 #inicio {
     scroll-margin-top: -40px;
@@ -350,6 +352,7 @@ body{
     justify-content: space-around;
     align-items: center;
     font-size: clamp(16px, 1vw, 22px);
+    /* overflow: hidden; */
 }
 .contato h2 {
     font-size: clamp(30px, 3vw, 40px);
@@ -368,8 +371,9 @@ body{
     border-top-left-radius: 20px;
     border-bottom-right-radius: 20px;
     box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.1);
-    margin-bottom: 50px;
+    margin-bottom: 200px;
     padding: 20px;
+    
 }
 .contato-p{
     max-width: 500px;
@@ -395,7 +399,7 @@ body{
  /* FOOTER ---------------------------------------------------------- */
 .footer {
     font-weight: 400;
-    margin-top: 200px;
+    margin-top: 00px;
     background: linear-gradient(225deg, #700606, #360101);
     color: aliceblue;
     font-family: 'Times New Roman', Times, serif;
