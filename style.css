@@ -11,9 +11,10 @@ html{
 body{
     font-family:'Times New Roman', Times, serif;
     color: #700606;
+    overflow-x: hidden;
 }
 main {
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 #inicio {
     scroll-margin-top: -40px;
